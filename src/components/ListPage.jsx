@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { moviesListRequest, searchMoviesRequest } from '../redux/actions';
 import ListItem from "./generic/ListItem";
 import Header from './generic/Header';
+import Loader from './generic/Loader';
 
 class ListPage extends Component {
     constructor(props) {
@@ -58,14 +59,14 @@ class ListPage extends Component {
 
         let movies_list = isSearch ? search : movies;
         let isPrev = page !== 1, isNext = movies_list.isSuccess && movies_list.data.total_pages > page;
-        
+
         return (
             <>
                 <Header isHome onSubmit={this.onSubmit} onSearchChange={this.searchChange} searchText={this.state.searchText} />
 
                 {isSearch ? <button className='cancel' onClick={this.cancelSearch}>Cancel</button> : null}
 
-                {movies_list.isLoading ? <div>Loading...</div> :
+                {movies_list.isLoading ? <Loader /> :
                     <>
                         <div className='pagination'>
                             <button name='prev' onClick={this.onPageChange} disabled={!isPrev}>Prev</button>

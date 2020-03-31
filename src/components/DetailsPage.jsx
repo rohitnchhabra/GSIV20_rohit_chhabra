@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getMovieRequest } from '../redux/actions';
 import { IMAGE_URL } from '../config';
 import Header from './generic/Header';
+import Loader from './generic/Loader';
 
 class DetailsPage extends Component {
     componentDidMount() {
@@ -18,30 +19,28 @@ class DetailsPage extends Component {
 
     render() {
         const { movie: { data, isLoading } } = this.props;
-        if (isLoading) {
-            return <div>Loading...</div>
-        }
         return (
             <>
                 <Header />
-                <div className='details-wrapper'>
-                    <div className='details-img'>
-                        {data.backdrop_path ?
-                            <img src={IMAGE_URL + data.backdrop_path} alt="" />
-                            : null}
-                    </div>
-                    <div className='details'>
-                        <div className='block'>
-                            <span className='title-bold'>{data.title}</span> <span className='title-rating'>({data.vote_average})</span>
+                {isLoading ? <Loader /> :
+                    <div className='details-wrapper'>
+                        <div className='details-img'>
+                            {data.backdrop_path ?
+                                <img src={IMAGE_URL + data.backdrop_path} alt="" />
+                                : null}
                         </div>
-                        <div className='block description'>
-                            {new Date(data.release_date).getFullYear()} | {data.runtime} minutes | Director
+                        <div className='details'>
+                            <div className='block'>
+                                <span className='title-bold'>{data.title}</span> <span className='title-rating'>({data.vote_average})</span>
+                            </div>
+                            <div className='block description'>
+                                {new Date(data.release_date).getFullYear()} | {data.runtime} minutes | Director
                     </div>
-                        <div className='block description'>
-                            Description: {data.overview}
+                            <div className='block description'>
+                                Description: {data.overview}
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>}
             </>
         )
     }
