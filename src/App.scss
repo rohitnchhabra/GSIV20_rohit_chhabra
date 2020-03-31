@@ -1,0 +1,124 @@
+button {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.header {
+  height: 60px;
+  box-shadow: 5px 5px #e3e3e3;
+  display: flex;
+  justify-content: space-between;
+  
+  input[type=text] {
+    padding: 6px;
+    margin-top: 15px;
+    font-size: 17px;
+    border: none;
+    background: #ddd;
+    border-radius: 0 5px 5px 0;
+  }
+  .search-container {
+    float: right;
+  }
+  .search-container button {
+    float: left;
+    padding: 6px 10px;
+    margin-top: 15px;
+    margin-right: 0;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+  }
+  .search-container button:hover {
+    background: #ccc;
+  }
+  a {
+    margin: 15px;
+    .fa-home {
+      font-size: 1.5em;
+      color: black;
+    }
+  }
+  .page-title {
+    margin: 15px;
+  }
+}
+
+.pagination {
+  text-align: right;
+  .page-number {
+    padding: 0 15px;
+  }
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  a {
+    text-decoration: none;
+  }
+}
+.card {
+    border-radius: 10px;
+    border: 1px solid #e3e3e3;
+    width: 300px;
+    margin: 10px;
+    img {
+      border-radius: 10px 10px 0 0;
+      width: 100%;
+    }
+    .title {
+      text-decoration: none;
+      color: black;
+      padding: 0 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      height: 38px;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      padding-bottom: 0;
+      margin-bottom: 10px;
+      &.with-rating {
+        height: unset;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+}
+
+.details-wrapper {
+  display: flex;
+  .details-img {
+    margin: 10px;
+    border: 1px solid #e3e3e3;
+  }
+  .details {
+    padding: 10px;
+    .block {
+      margin-bottom: 10px;
+      &.description {
+        color: #666;
+        font-size: 0.9em;
+      }
+      .title-bold {
+        font-weight: bold;
+      }
+      .title-rating {
+        color: #888;
+      }
+    }
+  }
+}
